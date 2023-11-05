@@ -1,7 +1,9 @@
-import { greetUser } from '$utils/greet';
+//* <script defer src="http://localhost:3000/index.js"></script> *//
 
-window.Webflow ||= [];
-window.Webflow.push(() => {
-  const name = 'John Doe';
-  greetUser(name);
-});
+import squares from "$utils/hero-squares";
+
+
+squares()
+
+
+
