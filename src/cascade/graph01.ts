@@ -1,9 +1,7 @@
-export default function graph_hiw() {
-
-const columns = document.getElementsByClassName("graph-fill")
-const years = document.getElementsByClassName("graph-year")
-const sums = document.getElementsByClassName("graph-sum")
-const values = document.getElementsByClassName("graph-value")
+const columns = document.getElementsByClassName('graph-fill');
+const years = document.getElementsByClassName('graph-year');
+const sums = document.getElementsByClassName('graph-sum');
+const values = document.getElementsByClassName('graph-value');
 
 const graphArray = [
   {
@@ -60,33 +58,27 @@ const graphArray = [
     year: 2022,
     sum: 1705.0,
     value: 2.549,
-  }
+  },
 ];
 
-
-
-const maxSum = Math.max(...graphArray.map(el=>el.sum))
-const maxHeight = 16 * 16
-const fillHeight = maxSum/maxHeight
+const maxSum = Math.max(...graphArray.map((el) => el.sum));
+const maxHeight = 16 * 16;
+const fillHeight = maxSum / maxHeight;
 const svg = document.getElementById('graph');
-const gap = 4.5 * 16
-const lineOffsetY = 52
-const maxValue = Math.max(...graphArray.map(item => item.value));
+const gap = 4.5 * 16;
+const lineOffsetY = 52;
+const maxValue = Math.max(...graphArray.map((item) => item.value));
 const scaleFactor = maxHeight / maxValue / 1.125;
 
+for (let i = 0; i < graphArray.length; i++) {
+  // Убедитесь, что i < graphArray.length - 1, чтобы избежать ошибки out of bounds
 
-
-
-for (let i = 0; i < graphArray.length; i++) { // Убедитесь, что i < graphArray.length - 1, чтобы избежать ошибки out of bounds
-
-  years[i].innerHTML = graphArray[i].year
+  years[i].innerHTML = String(graphArray[i].year);
 
   //Set filled column height
   setTimeout(() => {
     columns[i].style.height = `${graphArray[i].sum / fillHeight}px`;
-
-
-  }, i * graphArray[i].sum / 100);
+  }, (i * graphArray[i].sum) / 100);
 
   //Set Value Position Y
   const valuesY = maxHeight + lineOffsetY - graphArray[i].value * scaleFactor;
@@ -95,7 +87,6 @@ for (let i = 0; i < graphArray.length; i++) { // Убедитесь, что i < 
   //Draw SVG Graph Orange line
   const x1 = i * gap; // расстояние между точками по горизонтали
   const y1 = maxHeight + lineOffsetY - graphArray[i].value * scaleFactor; // инвертируем Y, так как SVG рисует сверху вниз
-
   const x2 = (i + 1) * gap;
   const y2 = maxHeight + lineOffsetY - graphArray[i + 1].value * scaleFactor;
   const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -106,13 +97,12 @@ for (let i = 0; i < graphArray.length; i++) { // Убедитесь, что i < 
   line.setAttribute('stroke', '#ee7905');
   line.setAttribute('stroke-width', '2');
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   svg.appendChild(line);
 
   //Edit text values
 
-  sums[i].innerHTML = '$' + graphArray[i].sum
-  values[i].innerHTML = graphArray[i].value
-
-
+  sums[i].innerHTML = '$' + graphArray[i].sum;
+  values[i].innerHTML = String(graphArray[i].value);
 }
-

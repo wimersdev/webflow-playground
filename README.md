@@ -128,13 +128,13 @@ CSS outputs are also available in `localhost` during [development mode](#serving
 Path aliases are very helpful to avoid code like:
 
 ```typescript
-import example from '../../../../utils/example';
+import example from '../../../../cascade/example';
 ```
 
 Instead, we can create path aliases that map to a specific folder, so the code becomes cleaner like:
 
 ```typescript
-import example from '$utils/example';
+import example from '$cascade/example';
 ```
 
 You can set up path aliases using the `paths` setting in `tsconfig.json`. This template has an already predefined path as an example:
@@ -142,7 +142,7 @@ You can set up path aliases using the `paths` setting in `tsconfig.json`. This t
 ```json
 {
   "paths": {
-    "$utils/*": ["src/utils/*"]
+    "$utils/*": ["src/cascade/*"]
   }
 }
 ```
