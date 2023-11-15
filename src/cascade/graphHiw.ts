@@ -67,3 +67,22 @@ function graphHiw() {
 }
 
 export default graphHiw;
+
+document.addEventListener('DOMContentLoaded', () => {
+  // setup scroll into/out of view
+  document.querySelectorAll('.graph-animated').forEach((trigger) => {
+    new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // on scroll into view
+            graphHiw();
+          }
+        });
+      },
+      {
+        threshold: 0.5, // adjust the threshold as needed
+      }
+    ).observe(trigger);
+  });
+});
