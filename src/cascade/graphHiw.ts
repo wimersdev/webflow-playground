@@ -2,21 +2,21 @@ function graphHiw() {
   const colGrey = document.getElementsByClassName('graph-fill-grey');
   const colOrange = document.getElementsByClassName('graph-fill-orange');
   const graphArray = [
-    { grey: 1.5, orange: -0.1, line: 0 },
-    { grey: 2.0, orange: -0.2, line: -1 },
-    { grey: 2.2, orange: -0.3, line: -2 },
-    { grey: 2.0, orange: -0.2, line: -3 },
-    { grey: 2.2, orange: 0, line: -1.1 },
-    { grey: 2.4, orange: 0.2, line: 0 },
-    { grey: 2.5, orange: 0.4, line: 0.6 },
-    { grey: 2.3, orange: 0.6, line: 0.9 },
-    { grey: 2.5, orange: 0.8, line: 1 },
-    { grey: 2.5, orange: 1.0, line: 0.6 },
-    { grey: 2.4, orange: 0.2, line: 12 },
-    { grey: 2.5, orange: 0.4, line: 12 },
+    { grey: 1.0, orange: -0.2, line: -0.2 },
+    { grey: 0.9, orange: -0.25, line: -0.45 },
+    { grey: 1.0, orange: -0.3, line: -0.7 },
+    { grey: 1.1, orange: -0.15, line: -0.9 },
+    { grey: 1.3, orange: -0.1, line: -1 },
+    { grey: 1.5, orange: 0, line: 0 },
+    { grey: 1.75, orange: 0.2, line: 0.2 },
+    { grey: 2.1, orange: 0.3, line: 0.4 },
+    { grey: 2.4, orange: 0.4, line: 0.8 },
+    { grey: 2.6, orange: 0.5, line: 1.2 },
+    { grey: 2.9, orange: 0.6, line: 1.8 },
+    { grey: 2.8, orange: 1.0, line: 2.9 },
   ];
 
-  const colHeight = 15;
+  const colHeight = 12.5;
   const rem = 16;
   const max = Math.max(...graphArray.map((item) => item.grey));
   const maxHeight = colHeight * rem;
